@@ -16,6 +16,7 @@
 export PGROOT=/usr/pgsql-9.4
 export PGDATA=/pgdata/$HOSTNAME
 export PG_LOG=/tmp/pg.log
+export LC_ALL="pt_BR.utf8"
 export PATH=/opt/cpm/bin:$PGROOT/bin:$PATH
 export LD_LIBRARY_PATH=$PGROOT/lib
 

@@ -7,7 +7,8 @@ LABEL Release crunchy-postgresql:9.4.4
 LABEL Vendor Crunchy Data Solutions
 LABEL Version 9.4.4
 
-ENV TZ=America/Sao_Paulo
+ENV TZ=America/Sao_Paulo \
+	LC_ALL="pt_BR.utf8"
 
 # Install postgresql deps
 RUN rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
