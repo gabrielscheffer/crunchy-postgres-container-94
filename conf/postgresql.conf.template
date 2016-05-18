@@ -503,7 +503,7 @@ log_timezone = 'US/Eastern'
 
 # - Locale and Formatting -
 
-datestyle = 'iso, mdy'
+datestyle = 'iso, dmy'
 #intervalstyle = 'postgres'
 timezone = 'US/Eastern'
 #timezone_abbreviations = 'Default'     # Select the set of available time zone

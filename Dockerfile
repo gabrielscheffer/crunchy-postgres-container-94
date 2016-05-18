@@ -9,11 +9,15 @@ LABEL Version 9.4.4
 
 # Install postgresql deps
 RUN rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+
 RUN yum -y --enablerepo=centosplus install gettext epel-release && \
 	yum install -y procps-ng postgresql94 postgresql94-contrib \
 	postgresql94-server openssh-clients hostname bind-utils \
 	postgis2_94 postgis2_94-client pgrouting_94 &&  \
-	yum clean all -y
+	yum clean all -y && \
+    localedef -f UTF-8 -i pt_BR pt_BR.UTF-8 && \
+    timedatectl set-timezone America/Sao_Paulo && \
+    localectl set-locale LANG=pt_BR.utf8
 
 # set up cpm directory
 #
