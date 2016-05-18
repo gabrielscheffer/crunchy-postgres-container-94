@@ -20,6 +20,8 @@ RUN yum -y --enablerepo=centosplus install gettext epel-release && \
     localedef -f UTF-8 -i pt_BR pt_BR.UTF-8 && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+ADD etc/locale.conf /etc/
+
 # set up cpm directory
 #
 RUN mkdir -p /opt/cpm/bin
