@@ -7,6 +7,8 @@ LABEL Release crunchy-postgresql:9.4.4
 LABEL Vendor Crunchy Data Solutions
 LABEL Version 9.4.4
 
+ENV TZ=America/Sao_Paulo
+
 # Install postgresql deps
 RUN rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
 
@@ -16,8 +18,7 @@ RUN yum -y --enablerepo=centosplus install gettext epel-release && \
 	postgis2_94 postgis2_94-client pgrouting_94 &&  \
 	yum clean all -y && \
     localedef -f UTF-8 -i pt_BR pt_BR.UTF-8 && \
-    timedatectl set-timezone America/Sao_Paulo && \
-    localectl set-locale LANG=pt_BR.utf8
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # set up cpm directory
 #
