@@ -56,6 +56,11 @@ function fill_conf_file() {
 	else
 		MAX_WAL_SENDERS=6
 	fi
+	if [[ -v TZ ]]; then
+		echo "overriding TIMEZONE setting to " + $TZ
+	else
+		TZ=America/Sao_Paulo
+	fi
 
 	cp /opt/cpm/conf/postgresql.conf.template /tmp/postgresql.conf
 	sed -i "s/TEMP_BUFFERS/$TEMP_BUFFERS/g" /tmp/postgresql.conf
@@ -63,6 +68,7 @@ function fill_conf_file() {
 	sed -i "s/SHARED_BUFFERS/$SHARED_BUFFERS/g" /tmp/postgresql.conf
 	sed -i "s/MAX_WAL_SENDERS/$MAX_WAL_SENDERS/g" /tmp/postgresql.conf
 	sed -i "s/WORK_MEM/$WORK_MEM/g" /tmp/postgresql.conf
+	sed -i "s/TZ/$TZ/g" /tmp/postgresql.conf
 }
 
 function initialize_replica() {
