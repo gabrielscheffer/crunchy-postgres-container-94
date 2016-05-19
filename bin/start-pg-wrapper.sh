@@ -68,7 +68,7 @@ function fill_conf_file() {
 	sed -i "s/SHARED_BUFFERS/$SHARED_BUFFERS/g" /tmp/postgresql.conf
 	sed -i "s/MAX_WAL_SENDERS/$MAX_WAL_SENDERS/g" /tmp/postgresql.conf
 	sed -i "s/WORK_MEM/$WORK_MEM/g" /tmp/postgresql.conf
-	sed -i "s/TZ/$TZ/g" /tmp/postgresql.conf
+	sed -i "s,TZ,$TZ,g" /tmp/postgresql.conf
 }
 
 function initialize_replica() {
