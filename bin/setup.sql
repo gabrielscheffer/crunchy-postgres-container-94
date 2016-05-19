@@ -3,6 +3,7 @@ create extension postgis;
 create extension postgis_topology;
 create extension fuzzystrmatch;
 create extension postgis_tiger_geocoder;
+create extension adminpack;
 
 alter user postgres password 'PG_ROOT_PASSWORD';
 
@@ -19,6 +20,7 @@ create extension postgis;
 create extension postgis_topology;
 create extension fuzzystrmatch;
 create extension postgis_tiger_geocoder;
+	create extension adminpack;
 
 \c PG_DATABASE PG_USER;
 
