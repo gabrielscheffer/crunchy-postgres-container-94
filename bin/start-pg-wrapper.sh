@@ -79,7 +79,6 @@ EOF
 chmod 0600 .pgpass
 export PGPASSFILE=/tmp/.pgpass
 rm -rf $PGDATA/*
-chmod 0700 $PGDATA
 
 echo "sleeping 30 seconds to give the master time to start up before performing the initial backup...."
 sleep 30
@@ -135,7 +134,8 @@ if [ ! -f $PGDATA/postgresql.conf ]; then
 	pg_ctl -D $PGDATA stop
 fi
 }
-
+#Improove permissions
+chmod 0700 $PGDATA
 #
 # clean up any old pid file that might have remained
 # during a bad shutdown of the container/postgres
