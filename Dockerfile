@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:centos7
 MAINTAINER crunchy
 
 
@@ -11,9 +11,9 @@ ENV TZ=America/Sao_Paulo \
 	LC_ALL="pt_BR.utf8"
 
 # Install postgresql deps
-RUN rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+RUN rpm -Uvh https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-3.noarch.rpm
 
-RUN yum -y --enablerepo=centosplus install gettext epel-release && \
+RUN set -x && yum -y --enablerepo=centosplus install gettext epel-release && \
 	yum install -y procps-ng postgresql94 postgresql94-contrib \
 	postgresql94-server openssh-clients hostname bind-utils \
 	postgis2_94 postgis2_94-client pgrouting_94 &&  \
